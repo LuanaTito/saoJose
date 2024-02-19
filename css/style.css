@@ -1,23 +1,10 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
-/*
-Criando regras usando o fluxo de trabalho MOBILE FIRST
 
-Todas as regras declaradas a partir deste ponto serão voltadas ao site com 
-telas  mobile/pequenas.
-
-Posteriomente, criaremos as Medias Queries com somente os ajustes necessários
-para a exibição de em telas grandes/desktop.
-
-OBS: regras criadas nesta abordagem, também serão válidas para o site como
-um todo, ou seja, independente do tamanho da tela que será exibido.
-
-*/
 /*Regras gerais*/
 body {
     font-family: 'Ubuntu', sans-serif;
-    background-image: url(../imagem/hypnotize.png);
     background-attachment: fixed;
     margin: 0;
     padding: 0;
@@ -41,25 +28,26 @@ img {
 /*Regras para o topo*/
 #topo {
     background-color: #FECE02;
-    /*border-bottom: solid 1px;*/
     text-align: center;
-    margin-bottom: 15px;
+   padding: 15px;
 }
 
 h1 img {
-    margin-top: 5px;
+    margin-top: 25px;
     width: 200px;
 }
 
 nav {
-    min-height: 40px;
-    display: flex;
+    min-height: 20px;
+    display: block;
     justify-content: center;
     align-content: center;
     text-transform: uppercase;
     font-weight: bold;
-    line-height: 40px;
-    padding-left: 1%;
+    overflow: hidden;
+    margin: 10px;
+    line-height: 30px;
+    /* padding-left: 1%; */
 }
 
 nav a:link,
@@ -67,12 +55,12 @@ nav a:visited {
     text-decoration: none;
     color: black;
     transition: background-color 1s;
-    padding: 14px 25px;
+    /* padding: 14px 25px; */
     min-height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 23%;
+    /* width: 23%; */
 }
 
 nav a:hover,
@@ -92,27 +80,34 @@ nav a:focus {
     width: 100%;
 }
 
-.rodape p {
+.rodape p,li {
     font-size: 14px;
 }
 
-.rodape aside {
-    margin: 25px;
-}
+/* .rodape aside {
+    margin: 25px; 
+} */
 
+.titulo-rodape{
+    font-size: 16px;
+    color: #E3EE1B;
+}
 .rodape img {
     margin-left: 5px;
     margin-right: 5px;
 }
 
 .rodape-conteudo {
-    display: flex;
+    padding: 15px;
+    color: #fff;
+    /* display: flex;
     justify-content: center;
-    align-content: center;
+    align-content: center; */
 }
 
 .rodape-conteudo ul {
     list-style: none;
+    
 }
 
 #logo-rodape {
@@ -124,13 +119,16 @@ nav a:focus {
 
 .menu-rodape a {
     text-decoration: none;
-    color: #7F7F80;
-}
-
-.menu-rodape a:hover {
     color: #fff;
 }
 
+.menu-rodape a:hover {
+    color: #E3EE1B;
+}
+.menu-rodape ul{
+   padding: 0;
+
+}
 .redes img {
     min-width: 35px;
     width: 35px;
@@ -154,8 +152,14 @@ nav a:focus {
     padding: 1%;
 }
 
+.assinatura a{
+    text-decoration: none;
+}
+
 .assinatura p {
     padding-top: 3%;
+    color: #323232;
+
 }
 
 /*Regra para a área de conteúdo principal.
@@ -180,15 +184,40 @@ toda e centralizamos com a margem em automático. */
 }
 
 .titulo {
-    font-size: 2em;
-    color: #ED6D19;
+    font-size: 1.4em;
+    color: #EC1E28;
     text-align: center;
     text-transform: uppercase;
 }
 
-.destaque img {
-    border-bottom: dotted #ED6D19 5px;
+.hrTitulo{
+  display: inline;
+  margin: 8%;
 }
+.hrstart{
+    float: inline-start;
+}
+.hrend{
+    float: inline-end;
+}
+
+.hrend, .hrstart{
+    background-color: #EC1E28;
+    width: 30%;
+    height: 2px;
+    border: none;
+}
+.tituloLinha{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* .destaque img {
+    border-bottom: dotted #ED6D19 5px;
+} */
 
 .text-destaque {
     position: relative;
@@ -212,22 +241,27 @@ toda e centralizamos com a margem em automático. */
     padding: 0 0 5px 50px;
 }
 
-.cont-home{
+/* .cont-home{
     height: 290px;
-}
+} */
 
 #frase {
     color: #fff;
-    background-color: #ED6D19;
+    background: #E3EE1B;
     text-align: center;
-    height: 80px;
+height:auto;
+padding: 20px;
     
 }
 
 #frase p {
     font-size: 1em;
-    padding: 12px;
+    color: #323232;
     
+}
+.icones-frase img{
+max-width: 115px;
+width: 100%;
 }
 
 /*21/08 - Regras para os articles contidos no #conteudo*/
@@ -299,7 +333,10 @@ iframe {
 
 #form-contato input,
 #form-contato textarea {
-    border: solid 2px black;
+    /* border: solid 2px black; */
+    border: none;
+    border-radius: 5px;
+    background-color:  #D9D9D9;;
     width: 100%;
     margin: 4px auto;
 }
@@ -314,7 +351,7 @@ iframe {
 }
 
 /*Regras para o botão*/
-#form-contato button {
+/* #form-contato button {
     border: none;
     padding: 2%;
     background-color: #000;
@@ -325,9 +362,9 @@ iframe {
 #form-contato button:hover,
 #form-contato button:focus {
     background-color: #ED6D19;
-    cursor: pointer;
+    cursor: pointer; */
     /*Cursor mãozinha*/
-}
+
 
 .conteudo-info p {
     margin: 5%;
@@ -401,24 +438,20 @@ iframe {
 
 .produtos img {
     max-width: 100px;
-    border: solid #7F7F80 3px;
-    border-radius: 100%;
-    box-shadow: grey 1px 1px 5px;
-
+    border: 1px solid #EC1E28;
+    border-radius: 15px;
 }
 
 .produtos {
     box-shadow: grey 1px 1px 5px;
     text-align: center;
-    padding: 20px;
-    width: 360px;
-    height: 200px;
-    margin: 10px;
+    padding: 10px;  
     border-radius: 5px;
+    margin: 10px auto;
 }
 
 .produtos h4 {
-    color: #ED6D19;
+    color: #181817;
     text-transform: uppercase;
 }
 
@@ -429,14 +462,53 @@ iframe {
 
 .acesse {
     text-transform: uppercase;
-    background-color: #ED6D19;
-    width: 100px;
+    color: #EC1E28;
+    font-weight: 600;
+}
+
+.btnorcamento, #enviar{
+    text-transform: uppercase;
+    background-color: #EC1E28;
+    color: #fff;
+    width: 200px;
     height: 20px;
-    padding: 3px;
-    margin: -10px auto;
-    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.btnorcamento a{
+    text-decoration: none;
     color: #fff;
 }
+
+.btnorcamento a:hover{
+    background-color: #181817;
+}
+.marcas{padding: 10px;}
+.marcas p{
+    text-align: center;
+}
+.sobre{
+    padding: 2%;
+}
+.sobre img{
+    border-radius: 10px;
+}
+.sobre p{
+    line-height: 20px;
+    margin: 1%;
+}
+.consultor{
+border-radius: 21px;
+background: #E3EE1B;
+padding: 10px;
+}
+.consultor a{
+    font-size: 14px;
+}
+
 
 /*Trabalhando com  as medias queries
 Regras com ajustes para a visualização do site/conteúdo em tamanhos de telas
