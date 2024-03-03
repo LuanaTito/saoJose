@@ -22,6 +22,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
 
 </head>
 
@@ -31,7 +33,10 @@
             <h1>
                 <a href="index.html"><img src="images/logotipo_saojose_novo.png" alt="Logotipo"></a>
             </h1>
-            <nav>
+            <span id="iconMenu" class="material-symbols-outlined" onclick="clickMenu()">
+                menu
+                </span>
+            <nav id="itens">
                 <a href="index.html" tabindex="1">Home</a>
                 <!--tabindex é utilizado para a acessibilidade-->
                 <a href="sobre.html" tabindex="2">sobre</a>
@@ -67,12 +72,12 @@
 
         <aside id="frase">
             <div class="icones-frase">
-                <div class="fraseImg"><img src="images/compra.png" alt="Icone de compra"></div>
-                <p><strong>COMPRA SEGURA </strong><br>ambiente protegido</p>
-                <div class="fraseImg"><img src="images/empilhadeira.png" alt="Icone de uma empilhadeira"></div>
-                <p><strong>TUDO DE PEÇA</strong> <br>para empilhadeira</p>
-                <div class="fraseImg"><img src="images/entrega.png" alt="Icone de entrega rápida"></div>
-                <p><strong> ENTREGAS </strong><br>rápidas e seguras</p>
+                <div class="fraseImg"><img src="images/compra.png" alt="Icone de compra">
+                <p><strong>COMPRA SEGURA </strong><br>ambiente protegido</p></div>
+                <div class="fraseImg"><img src="images/empilhadeira.png" alt="Icone de uma empilhadeira">
+                <p><strong>TUDO DE PEÇA</strong> <br>para empilhadeira</p></div>
+                <div class="fraseImg"><img src="images/entrega.png" alt="Icone de entrega rápida">
+                <p><strong> ENTREGAS </strong><br>rápidas e seguras</p></div>
 
             </div>
         </aside>
@@ -130,9 +135,9 @@
                     <p>Descrição do item.</p>
                     <div class="acesse">R$ 00,00</div>
                 </div>
-                <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
+               
             </div>
-
+            <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
             
             <div class="tituloLinha">
                 <hr class="hrstart">
@@ -184,8 +189,9 @@
                     <p>Descrição do item.</p>
                     <div class="acesse">R$ 00,00</div>
                 </div>
-                <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
+               
             </div>
+            <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
 
             
             <div class="tituloLinha">
@@ -238,8 +244,9 @@
                     <p>Descrição do item.</p>
                     <div class="acesse">R$ 00,00</div>
                 </div>
-                <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
+                
             </div>
+            <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
 
             
             <div class="tituloLinha">
@@ -292,8 +299,9 @@
                     <p>Descrição do item.</p>
                     <div class="acesse">R$ 00,00</div>
                 </div>
-                <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
+                
             </div>
+            <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
 
            
             <div class="tituloLinha">
@@ -346,8 +354,9 @@
                     <p>Descrição do item.</p>
                     <div class="acesse">R$ 00,00</div>
                 </div>
-                <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
+               
             </div>
+            <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
             <hr>
             
             <div class="tituloLinha">
@@ -400,8 +409,9 @@
                     <p>Descrição do item.</p>
                     <div class="acesse">R$ 00,00</div>
                 </div>
-                <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
+                
             </div>
+            <div class="btnorcamento"><a href="contato.html">Faça um orçamento</a></div>
         </article>
         <article class="marcas">
             <p>Trabalhamos com as seguintes marcas:</p>
@@ -437,8 +447,8 @@
 
             <div class="menu-rodape">
                 <h3 class="titulo-rodape">ATENDIMENTO</h3><br>
-                <p>(11) 94028-9794
-                    (11) 2598-8811
+                <p>(11) 94028-9794<br>
+                    (11) 2598-8811<br>
                     atendimento@saojosepecas.com.br</p><br>
 
                 <p>Horários de Funcionamento<br>
@@ -477,6 +487,7 @@
     </footer>
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="slick/slick.min.js"></script>
+    <script src="js/interacoes.js"></script>
     <script>
         $(document).ready(function () {
             // Inicialização/Ativação do plugin Slick
