@@ -17,6 +17,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <style>
+        .mensagem-sucesso {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .mensagem-erro {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .mensagem-aviso {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #ffeeba;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,9 +60,7 @@
             <nav id="itens">
                 <a href="index.html" tabindex="1">Home</a>
                 <a href="sobre.html" tabindex="2">Sobre</a>
-               <!-- <a href="#" tabindex="3">Peças</a>
-                <a href="#" tabindex="4">Empilhadeiras</a>-->
-                <a href="contato.html" tabindex="5">Contato</a>
+                <a href="contato.php" tabindex="5">Contato</a>
             </nav>
         </div>
     </header>
@@ -45,78 +72,98 @@
                     <h2 class="titulo">Contato</h2>
 
                     <?php
-          if( isset( $_POST['enviar']) ){
-              //Verificando se os campos indicados foram preenchidos 
-              if( !empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['telefone']) && !empty($_POST['mensagem']) ){
-                  
-                  //pegar os valores preenchidos nos campos do formulario
-                  $nome = $_POST['nome'];
-                  $email = $_POST['email'];
-                  $telefone = $_POST['telefone'];
-                  $mensagem = $_POST['mensagem'];
-                  
-                  
-                  /*Rotinas para utilizacao de banco de dados*/
-                  include "conecta.php";
-                  
-                  //Obter a data (no formato do banco)
-                  $data = date("Y-m-d H:i:s");
-                  
-                  // montar a consulta SQL
-                  $sql = "INSERT INTO contatos (nome, email, telefone, mensagem, data)";
-                  $sql .= "VALUES( '{$nome}', '{$email}', '{$telefone}', '{$mensagem}', '{$data}')";
-                  //echo $sql
-                  
-                  // executar a consulta montada 
-                  
-                  mysqli_query( $conexao, $sql) or die(mysqli_error($conexao));
-                  
-                 ?> 
-                  <p>Seus dados foram enviados com suacesso!</p>
-                  <p>Em breve responderemos sua mensagem.</p>
-                  
-                  <?php
-              }else{
-                  ?>
-                  <p>Você deve preencher os campos obrigatórios</p>
-                  <p><a href="contato.php"><b>Voltar para o formulário</b></a></p>
-                                 
-              <?php 
-              }
-              
-          } else {
-                
-            ?>
-            
-            
-
-
-
+                    // Inicializar variáveis
+                    $nome = $email = $telefone = $mensagem = '';
+                    $erro = '';
+                    $sucesso = false;
+                    
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['enviar'])) {
+                        // Verificando se os campos obrigatórios foram preenchidos 
+                        if (!empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['telefone']) && !empty($_POST['mensagem'])) {
+                            
+                            // Sanitizar e validar os dados
+                            $nome = trim($_POST['nome']);
+                            $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+                            $telefone = trim($_POST['telefone']);
+                            $mensagem = trim($_POST['mensagem']);
+                            
+                            // Validar email
+                            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                $erro = "Email inválido.";
+                            } else {
+                                // Conectar ao banco de dados
+                                include "conecta.php";
+                                
+                                // Prevenir SQL injection
+                                $nome = mysqli_real_escape_string($conexao, $nome);
+                                $email = mysqli_real_escape_string($conexao, $email);
+                                $telefone = mysqli_real_escape_string($conexao, $telefone);
+                                $mensagem = mysqli_real_escape_string($conexao, $mensagem);
+                                
+                                // Obter a data (no formato do banco)
+                                $data = date("Y-m-d H:i:s");
+                                
+                                // Montar a consulta SQL
+                                $sql = "INSERT INTO contato (nome, email, telefone, mensagem, data) 
+                                        VALUES ('$nome', '$email', '$telefone', '$mensagem', '$data')";
+                                
+                                // Executar a consulta
+                                if (mysqli_query($conexao, $sql)) {
+                                    $sucesso = true;
+                                    // Limpar os campos após envio bem-sucedido
+                                    $nome = $email = $telefone = $mensagem = '';
+                                } else {
+                                    $erro = "Erro ao salvar no banco de dados: " . mysqli_error($conexao);
+                                }
+                                
+                                // Fechar conexão
+                                mysqli_close($conexao);
+                            }
+                        } else {
+                            $erro = "Por favor, preencha todos os campos obrigatórios.";
+                        }
+                    }
+                    
+                    // Exibir mensagens
+                    if ($sucesso) {
+                        echo '<div class="mensagem-sucesso">';
+                        echo '<p>Seus dados foram enviados com sucesso!</p>';
+                        echo '<p>Em breve responderemos sua mensagem.</p>';
+                        echo '</div>';
+                    } 
+                    
+                    if (!empty($erro)) {
+                        echo '<div class="mensagem-erro">';
+                        echo '<p>' . $erro . '</p>';
+                        echo '</div>';
+                    }
+                    
+                    // Mostrar formulário (a menos que seja um envio bem-sucedido)
+                    if (!$sucesso) {
+                    ?>
                     <p>Entre em contato conosco, escolha a melhor forma. Telefone, WhatsApp, e-mail ou nosso formulário:</p>
                     <form action="" id="form-contato" method="post" name="contato">
                         <p>
-                            <label for="nome">Nome:</label>
-                            <input tabindex="5" required type="text" id="nome" name="nome">
+                            <label for="nome">Nome:*</label>
+                            <input tabindex="5" required type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($nome); ?>">
                         </p>
                         <p>
-                            <label for="email">E-mail:</label>
-                            <input tabindex="6" required type="email" id="email" name="email">
+                            <label for="email">E-mail:*</label>
+                            <input tabindex="6" required type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
                         </p>
                         <p>
-                            <label for="telefone">Telefone:</label>
-                            <input tabindex="7" required type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                            <label for="telefone">Telefone:*</label>
+                            <input tabindex="7" required type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" value="<?php echo htmlspecialchars($telefone); ?>">
                         </p>
                         <p>
-                            <label for="mensagem">Mensagem:</label>
-                            <textarea tabindex="9" required name="mensagem" id="mensagem" cols="30" rows="6" placeholder="Como podemos ajudar?"></textarea>
+                            <label for="mensagem">Mensagem:*</label>
+                            <textarea tabindex="9" required name="mensagem" id="mensagem" cols="30" rows="6" placeholder="Como podemos ajudar?"><?php echo htmlspecialchars($mensagem); ?></textarea>
                         </p>
                         <p>
                             <button type="submit" tabindex="11" id="enviar" name="enviar">Enviar</button>
                         </p>
                     </form>
-                    <?php
-            } //fim do botao enviar 
-            ?>
+                    <?php } ?>
                 </div>
             </article>
             <article class="cont-contato" id="localizacao-end">
@@ -149,11 +196,8 @@
                 <h3 class="titulo-rodape">INSTITUCIONAL</h3>
                 <ul>
                     <li><a href="sobre.html">Sobre nós</a></li>
-                    <li><a href="#">Atuação</a></li>
-                    <li><a href="#">Peças</a></li>
-                    <li><a href="#">Empilhadeiras</a></li>
-                    <li><a href="contato.html">Orçamento</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="contato.php">Orçamento</a></li>
+                    <li><a href="contato.php">Contato</a></li>
                 </ul>
             </div>
             <div class="redes">

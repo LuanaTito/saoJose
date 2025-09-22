@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>São José Peças para Empilhadeiras - Sobre Nós</title>
+    <meta name="description" content="Conheça a São José Peças para empilhadeiras, especialista no mercado há mais de 30 anos com amplo estoque e atendimento nacional." />
+    <meta name="keywords" content="São José, peças, empilhadeiras, história, sobre, empresa, tradição, qualidade" />
+    <link rel="shortcut icon" type="image/png" href="images/logosj.png" />
+
+    <!--Buscando o css externo-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA A PÁGINA SOBRE */
+        .hero-sobre {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/empilhadeira-hero.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-sobre h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-sobre p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .diferenciais {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .diferencial-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .diferencial-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .diferencial-item .icone {
+            font-size: 3rem;
+            color: #EC1E28;
+            margin-bottom: 15px;
+        }
+        
+        .diferencial-item h3 {
+            color: #EC1E28;
+            margin-bottom: 15px;
+        }
+        
+        .linha-do-tempo {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .linha-do-tempo::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #FECE02;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .evento {
+            position: relative;
+            width: 45%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .evento::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #EC1E28;
+            border-radius: 50%;
+            top: 20px;
+        }
+        
+        .evento-esquerda {
+            left: 0;
+        }
+        
+        .evento-direita {
+            left: 55%;
+        }
+        
+        .evento-esquerda::after {
+            right: -30px;
+        }
+        
+        .evento-direita::after {
+            left: -30px;
+        }
+        
+        .evento h3 {
+            color: #EC1E28;
+            margin-bottom: 10px;
+        }
+        
+        .evento p {
+            color: #666;
+        }
+        
+        .equipe {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .membros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .membro {
+            width: 250px;
+            text-align: center;
+        }
+        
+        .membro img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #FECE02;
+        }
+        
+        .cta-sobre {
+            background-color: #EC1E28;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin: 40px 0;
+        }
+        
+        .cta-sobre h2 {
+            margin-bottom: 20px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .linha-do-tempo::after {
+                left: 31px;
+            }
+            
+            .evento {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .evento-esquerda, .evento-direita {
+                left: 0;
+            }
+            
+            .evento-esquerda::after, .evento-direita::after {
+                left: 18px;
+            }
+            
+            .hero-sobre {
+                padding: 50px 15px;
+            }
+            
+            .hero-sobre h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="topo">
+        <div>
+            <h1>
+                <a href="index.html"><img src="images/logotipo_saojose_novo.png" alt="Logotipo São José Peças"></a>
+            </h1>
+            <span id="iconMenu" class="material-symbols-outlined" onclick="clickMenu()">
+                menu
+            </span>
+            <nav id="itens">
+                <a href="index.html" tabindex="1">Home</a>
+                <a href="sobre.html" tabindex="2">Sobre</a>
+                <a href="#" tabindex="3">Peças</a>
+                <a href="#" tabindex="4">Empilhadeiras</a>
+                <a href="contato.html" tabindex="5">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="hero-sobre">
+            <h1>Nossa História</h1>
+            <p>Há mais de 30 anos fornecendo soluções em peças para empilhadeiras com qualidade e compromisso</p>
+        </section>
+
+        <article class="info-sobre">
+            <div class="sobre">
+                <div class="sobreTexto">
+                    <h2 class="titulo">Sobre nós</h2>
+                    <p>A <strong>São José Peças para empilhadeiras</strong> é uma empresa especializada em vendas de peças para empilhadeiras que atua no mercado nacional há mais de 30 anos. Nossa trajetória é marcada por compromisso com a qualidade e satisfação dos clientes.</p>
+                    
+                    <p>Atendemos todo o Brasil com uma equipe especializada pronta para fazer parte dos seus negócios, fornecendo produtos de altíssima qualidade e procedência garantida.</p>
+                    
+                    <p>Possuímos um amplo estoque, com entregas rápidas e a mais vasta linha de peças para empilhadeiras do mercado. Nossa missão é fornecer não apenas produtos, mas soluções que agreguem valor ao seu negócio.</p>
+                    
+                    <p>Temos o produto certo para atender às suas necessidades. Entre em contato e faça um orçamento sem compromisso.</p>
+                </div>
+                <div class="sobreTexto">
+                    <p><img src="images/operador-de-empilhadeiras.jpg" alt="Operador de empilhadeira"></p>
+                </div>
+            </div>
+
+            <div class="diferenciais">
+                <div class="diferencial-item">
+                    <div class="icone material-symbols-outlined">engineering</div>
+                    <h3>Qualidade Garantida</h3>
+                    <p>Todas as nossas peças passam por rigoroso controle de qualidade para garantir performance e durabilidade.</p>
+                </div>
+                
+                <div class="diferencial-item">
+                    <div class="icone material-symbols-outlined">local_shipping</div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Entregamos para todo o Brasil com prazos reduzidos e acompanhamento em tempo real.</p>
+                </div>
+                
+                <div class="diferencial-item">
+                    <div class="icone material-symbols-outlined">support_agent</div>
+                    <h3>Suporte Técnico</h3>
+                    <p>Equipe especializada para oferecer suporte técnico e orientação na escolha das peças ideais.</p>
+                </div>
+            </div>
+
+            <div class="linha-do-tempo">
+                <h2 class="titulo" style="text-align: center; margin-bottom: 40px;">Nossa Trajetória</h2>
+                
+                <div class="evento evento-esquerda">
+                    <h3>1993 - Fundação</h3>
+                    <p>A São José Peças foi fundada com o objetivo de fornecer peças de qualidade para empilhadeiras em São Bernardo do Campo.</p>
+                </div>
+                
+                <div class="evento evento-direita">
+                    <h3>2005 - Expansão</h3>
+                    <p>Ampliamos nosso catálogo de produtos e começamos a atender clientes em todo estado de São Paulo.</p>
+                </div>
+                
+                <div class="evento evento-esquerda">
+                    <h3>2012 - Atendimento Nacional</h3>
+                    <p>Iniciamos nossas operações para todo o Brasil, com sistema de entregas ágeis e eficientes.</p>
+                </div>
+                
+                <div class="evento evento-direita">
+                    <h3>2020 - Modernização</h3>
+                    <p>Implementamos novas tecnologias e e-commerce para melhor atender nossos clientes digitalmente.</p>
+                </div>
+                
+                <div class="evento evento-esquerda">
+                    <h3>2023 - 30 Anos</h3>
+                    <p>Completamos 30 anos de mercado, consolidados como referência em peças para empilhadeiras.</p>
+                </div>
+            </div>
+
+            <div class="equipe">
+                <h2 class="titulo">Nossa Equipe</h2>
+                <p>Contamos com profissionais especializados e comprometidos com a excelência no atendimento</p>
+                
+                <div class="membros">
+                    <div class="membro">
+                        <img src="images/consultor1.jpg" alt="Consultor Técnico">
+                        <h3>Carlos Silva</h3>
+                        <p>Consultor Técnico</p>
+                    </div>
+                    
+                    <div class="membro">
+                        <img src="images/consultor2.jpg" alt="Gerente Comercial">
+                        <h3>Ana Santos</h3>
+                        <p>Gerente Comercial</p>
+                    </div>
+                    
+                    <div class="membro">
+                        <img src="images/consultor3.jpg" alt>Especialista em Logística</h3>
+                        <p>Especialista em Logística</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-sobre">
+                <h2>Precisa de peças para sua empilhadeira?</h2>
+                <p>Entre em contato conosco e descubra como podemos ajudar seu negócio</p>
+                <div class="btnorcamento" style="background-color: white; margin: 20px auto;">
+                    <a href="contato.html" style="color: #EC1E28;">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <div class="menu-rodape">
+                <h3 class="titulo-rodape">ATENDIMENTO</h3>
+                <p>(11) 94028-9794<br>
+                    (11) 2598-8811<br>
+                    fachini.emp@gmail.com</p>
+                <p>Horários de Funcionamento<br>
+                    Segunda a Sexta-Feira - 8h às 18h</p>
+                <p>Rua Candido Portinari, 85<br>
+                    São Bernardo do Campo</p>
+            </div>
+            <div class="menu-rodape">
+                <h3 class="titulo-rodape">INSTITUCIONAL</h3>
+                <ul>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                    <li><a href="#">Atuação</a></li>
+                    <li><a href="#">Peças</a></li>
+                    <li><a href="#">Empilhadeiras</a></li>
+                    <li><a href="contato.html">Orçamento</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="redes">
+                <aside>
+                    <a href="#"><img src="images/facebook.png" alt="Logo do Facebook"></a>
+                    <a href="#"><img src="images/insta.png" alt="Logo do Instagram"></a>
+                    <a href="#"><img src="images/whatsapp.png" alt="Logo do WhatsApp"></a>
+                </aside>
+            </div>
+        </div>
+        <div class="assinatura">
+            <p>Desenvolvido por <a href="http://www.utiinternet.com.br" target="_blank">utiinternet</a> |
+                Todos os direitos reservados |
+                2024</p>
+        </div>
+    </footer>
+
+    <script src="js/interacoes.js"></script>
+</body>
+
+</html>
