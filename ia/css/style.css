@@ -1,0 +1,523 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+/*Regras gerais*/
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1, h2, h3, h4, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*Regras para o topo*/
+#topo {
+    background-color: #FECE02;
+    text-align: center;
+    padding: 15px;
+}
+
+h1 img {
+    margin-top: 25px;
+    width: 200px;
+}
+
+nav {
+    min-height: 20px;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    overflow: hidden;
+    margin: 10px;
+    line-height: 30px;
+}
+
+nav a:link, nav a:visited, #iconMenu:link, #iconMenu:visited {
+    text-decoration: none;
+    color: black;
+    transition: background-color 1s;
+    min-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a:hover, #iconMenu:hover, #iconMenu:focus nav a:focus {
+    background-color: #323232;
+    color: #FFF;
+    transition: background-color 1s;
+    border-radius: 5%;
+}
+
+#iconMenu {
+    color: #323232;
+    cursor: pointer;
+    min-height: 40px;
+    display: block;
+    overflow: hidden;
+    line-height: 40px;
+    padding-left: 1%;
+    font-size: 40px;
+}
+
+/*Regras do Rodapé*/
+.rodape {
+    border-top: solid #E3EE1B 5px;
+    background-color: #323232;
+    color: #7F7F80;
+    text-align: center;
+    width: 100%;
+}
+
+.rodape p, li {
+    font-size: 14px;
+}
+
+.titulo-rodape {
+    font-size: 16px;
+    color: #E3EE1B;
+}
+
+.rodape img {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.rodape-conteudo {
+    padding: 15px;
+    color: #fff;
+}
+
+.rodape-conteudo ul {
+    list-style: none;
+}
+
+.menu-rodape a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-rodape a:hover {
+    color: #E3EE1B;
+}
+
+.menu-rodape ul {
+    padding: 0;
+}
+
+.redes img {
+    min-width: 35px;
+    width: 35px;
+}
+
+.assinatura {
+    color: #fff;
+    background-color: #FECE02;
+    text-align: center;
+    height: 50px;
+    padding: 1%;
+}
+
+.assinatura a {
+    text-decoration: none;
+}
+
+.assinatura p {
+    padding-top: 3%;
+    color: #323232;
+}
+
+/*Área de conteúdo principal*/
+#conteudo {
+    max-width: 95%;
+    margin: auto;
+}
+
+#conteudo article {
+    background-color: white;
+    margin: 15px 0;
+    padding: 1%;
+    box-shadow: grey 1px 1px 5px;
+}
+
+#conteudo h2, #conteudo h3, #conteudo p {
+    padding: 1%;
+}
+
+.titulo {
+    font-size: 1.4em;
+    color: #EC1E28;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hrTitulo {
+    display: inline;
+    margin: 8%;
+}
+
+.hrstart, .hrend {
+    background-color: #EC1E28;
+    width: 30%;
+    height: 2px;
+    border: none;
+}
+
+.tituloLinha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#frase {
+    color: #fff;
+    background: #E3EE1B;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+}
+
+#frase p {
+    font-size: 1em;
+    color: #323232;
+}
+
+.icones-frase img {
+    max-width: 115px;
+    width: 100%;
+}
+
+/*Produtos*/
+.card {
+    margin: 15px 0;
+    padding: 5%;
+}
+
+.card p {
+    text-align: center;
+    padding: 1% 0 2% 0;
+}
+
+.acessorios {
+    margin: auto;
+    padding: 15px;
+}
+
+.produtos img {
+    max-width: 100px;
+    border: 1px solid #EC1E28;
+    border-radius: 15px;
+}
+
+.produtos {
+    box-shadow: grey 1px 1px 5px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.produtos h4 {
+    color: #181817;
+    text-transform: uppercase;
+}
+
+.img-produto img {
+    width: 100px;
+    height: 100px;
+}
+
+.acesse {
+    text-transform: uppercase;
+    color: #EC1E28;
+    font-weight: 600;
+}
+
+.btnorcamento, #enviar {
+    text-transform: uppercase;
+    background-color: #EC1E28;
+    color: #fff;
+    width: 200px;
+    height: 20px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: block;
+}
+
+.btnorcamento a, #enviar {
+    text-decoration: none;
+    color: #fff;
+    padding: 9px;
+    border-radius: 20px;
+}
+
+.btnorcamento a:hover {
+    background-color: #181817;
+    width: 200px;
+    height: 20px;
+}
+
+.marcas {
+    padding: 10px;
+}
+
+.marcas p {
+    text-align: center;
+}
+
+.sobre {
+    padding: 2%;
+}
+
+.sobre img {
+    border-radius: 10px;
+}
+
+.sobre p {
+    line-height: 20px;
+    margin: 1%;
+}
+
+.consultor {
+    border-radius: 10px;
+    background: #E3EE1B;
+    padding: 10px;
+}
+
+.consultor a {
+    font-size: 14px;
+}
+
+/*Formulário*/
+#form-contato {
+    margin: auto;
+    max-width: 700px;
+    width: 95%;
+}
+
+#form-contato input, #form-contato textarea, #form-contato button {
+    border: none;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    width: 100%;
+    margin: 4px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#form-contato input, #form-contato textarea {
+    border: 1px solid #ccc;
+}
+
+#form-contato input {
+    height: 40px;
+}
+
+#form-contato button {
+    background-color: #EC1E28;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    height: 40px;
+}
+
+#form-contato button:hover {
+    background-color: #c00;
+}
+
+#form-contato label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.conteudo-info p {
+    margin: 2%;
+}
+
+.localizacao p {
+    text-align: center;
+}
+
+/* Estilos para o slider */
+.destaque {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.cont-destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.cont-destaque img {
+    width: auto;
+    max-width: 100%;
+    max-height: 400px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Slick slider adjustments */
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-track {
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustes responsivos */
+@media screen and (max-width: 768px) {
+    .cont-destaque img {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cont-destaque img {
+        max-height: 200px;
+    }
+}
+
+/*Media Queries*/
+@media screen and (min-width:768px) {
+    #topo {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        height: 80px;
+        z-index: 1000;
+    }
+
+    #topo div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #iconMenu {
+        display: none;
+    }
+
+    h1 {
+        margin-left: 3%;
+        margin-top: 5px;
+        width: 150px;
+    }
+
+    nav, .marcas {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 10px;
+    }
+
+    .icones-frase {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #conteudo {
+        margin-top: 130px;
+    }
+
+    .sobre {
+        display: flex;
+    }
+
+    .info-sobre {
+        margin-top: 130px;
+    }
+
+    #conteudo-contato {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #conteudo .cont-contato {
+        margin: 1%;
+        max-width: 600px;
+        width: 100%;
+    }
+    
+    #localizacao-end {
+        height: auto;
+        padding-top: 20px;
+    }
+
+    .rodape-conteudo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-rodape, .redes {
+        margin: 0 auto;
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .assinatura p {
+        padding-top: 1%;
+    }
+
+    .acessorios {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .produtos {
+        margin: 10px 1%;
+        height: auto;
+        flex: 1;
+        min-width: 180px;
+        max-width: 200px;
+    }
+}
+
+@media screen and (min-width:850px) {
+    .produtos {
+        height: 250px;
+    }
+    
+    .acesse {
+        margin: 20px auto;
+    }
+
+    #conteudo article {
+        margin: 15px 5px;
+    }
+}
